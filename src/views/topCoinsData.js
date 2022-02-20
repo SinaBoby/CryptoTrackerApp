@@ -1,3 +1,5 @@
+import { loadLightChart } from "./loadLightChart.js";
+
 export const getTopCoinsData = async () => {
   const element = document.createElement('div');
   fetch(
@@ -35,19 +37,38 @@ export const getTopCoinsData = async () => {
         const listItem = document.createElement('tr');
         listItem.innerHTML = `
         <td>${coin.market_cap_rank}</td>
-        <td><img src="${coin.image}" class="coin-logo">${coin.name}</td>  
+        <td><a href="#" id="${coin.symbol}"> <img src="${coin.image}" class="coin-logo">${coin.name}</a></td>  
       <td>${coin.current_price}$</td>
       <td >${coin.price_change_percentage_24h}%</td>
       <td>${coin.total_volume}$</td>
       <td>${coin.market_cap}$</td>
       
       `;
-
         topCoins.appendChild(listItem);
+        console.log(document.getElementById(`${coin.symbol}`))
+        const name = document.getElementById(`${coin.symbol}`)
+        name.addEventListener('click', loadDetails) 
+        
       });
+      
     })
     .catch((error) => {
       console.log(error);
     });
   return element;
 };
+async function loadDetails(e) {
+  e.preventDefault()
+  document.getElementById('container').innerHTML = '';
+  console.log(this)
+  console.log(this.id)
+ const tradingViewChart =  document.createElement('div')
+ tradingViewChart.id = this.id + "Chart"
+ tradingViewChart.classList.add('tradingview-widget-container');
+ document.getElementById('container').appendChild(tradingViewChart)
+ const coinId = this.id.toUpperCase() + 'USDT'
+ console.log(coinId)
+ const miniChart = await loadLightChart(coinId,tradingViewChart.id)
+ console.log(tradingViewChart.id)
+
+}
