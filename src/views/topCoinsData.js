@@ -42,6 +42,7 @@ export const getTopCoinsData = async () => {
       <td>${coin.market_cap}$</td>
       `;
           topCoins.appendChild(listItem);
+
           const name = document.getElementById(`${coin.symbol}`);
           name.addEventListener('click', loadDetails);
         });
@@ -57,6 +58,7 @@ export const getTopCoinsData = async () => {
 async function loadDetails(e) {
   try {
     e.preventDefault();
+    
     document.getElementById('container').innerHTML = '';
     const tradingViewChart = document.createElement('div');
     tradingViewChart.id = this.id + 'Chart';
