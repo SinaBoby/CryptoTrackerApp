@@ -24,6 +24,4 @@ export async function homePage(userInterfaceElement) {
 }
 
 
-fetch('https://api.binance.com/api/v1/exchangeInfo')
-  .then((response) => response.json())
-  .then((data) => console.log(data));
+
