@@ -1,12 +1,14 @@
-
-import { USER_INTERFACE_ID } from "./constants.js";
-import { homePage } from "./pages/homePage.js";
+import { USER_INTERFACE_ID } from './constants.js';
+import { homePage } from './pages/homePage.js';
 export const router = (page) => {
   const userInterfaceElement = document.getElementById(USER_INTERFACE_ID);
   userInterfaceElement.innerHTML = '';
-  switch(page) {
+  switch (page) {
     case 'home':
       homePage(userInterfaceElement);
       break;
+    case 'charts':
+      technicalPage(userInterfaceElement);
+      break;
   }
-}
+};
