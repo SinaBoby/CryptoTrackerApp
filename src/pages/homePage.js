@@ -1,9 +1,10 @@
 import { technicalPage } from './technicalPage.js';
-import { coinsDataPage } from './coinsInfoPage.js';
+import { categoriesDataPage } from './categoriesInfoPage.js';
 import { createNavBar } from '../views/navBarView.js';
 import { getTopCoinsData } from '../views/topCoinsData.js';
 import { loadLivePrice } from '../views/loadLivePrice.js';
 import { USER_INTERFACE_ID } from '../constants.js';
+import { router } from '../router.js';
 
 export async function homePage(userInterfaceElement) {
   try {
@@ -13,16 +14,19 @@ export async function homePage(userInterfaceElement) {
     const topCoinsTable = await getTopCoinsData();
     userInterfaceElement.appendChild(topCoinsTable);
 
-    const ethPrice = await loadLivePrice('ethusdt');
-    document.getElementById(USER_INTERFACE_ID).appendChild(ethPrice);
-    const btcPrice = await loadLivePrice('btcusdt');
-    document.getElementById(USER_INTERFACE_ID).appendChild(btcPrice);
-    document.getElementById('technical-page').addEventListener('click',technicalPage);
-    document.getElementById('coins-info-page').addEventListener('click',coinsDataPage)
+    document
+      .getElementById('logo')
+      .addEventListener('click', async function () {
+        document.getElementById('header').innerHTML = '';
+        await homePage(userInterfaceElement);
+      });
+    document
+      .getElementById('technical-page')
+      .addEventListener('click', technicalPage);
+    document
+      .getElementById('categories-info-page')
+      .addEventListener('click', categoriesDataPage);
   } catch (error) {
     console.log(error);
   }
 }
-
-
-

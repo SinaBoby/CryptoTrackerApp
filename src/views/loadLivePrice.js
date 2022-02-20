@@ -1,5 +1,5 @@
 export const loadLivePrice = async (symbol = 'btcusdt') => {
-  const priceElement = document.createElement('p');
+  const priceElement = document.createElement('li');
   priceElement.id = `${symbol}-p`;
   loadPriceTicker(symbol)
     .then((ws) => {
@@ -32,7 +32,7 @@ function publishPrice(ws) {
     let priceElement = document.getElementById(`${symbol}-p`);
     
     /* console.log(stockObject.data); */
-    priceElement.textContent = parseFloat(stockObject.data.c).toFixed(2);
+    priceElement.textContent =`${symbol} :   ` + parseFloat(stockObject.data.c).toFixed(2);
     priceElement.style.color =
       !lastPrice || lastPrice === stockObject.data.c
         ? 'black'

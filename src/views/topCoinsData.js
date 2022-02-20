@@ -46,6 +46,9 @@ export const getTopCoinsData = async () => {
           const name = document.getElementById(`${coin.symbol}`);
           name.addEventListener('click', loadDetails);
         });
+        const container = document.createElement('div');
+        container.id = 'container';
+        document.getElementById('user-interface').appendChild(container);
       })
       .catch((error) => {
         console.log(error);
@@ -58,12 +61,12 @@ export const getTopCoinsData = async () => {
 async function loadDetails(e) {
   try {
     e.preventDefault();
-    
-    document.getElementById('container').innerHTML = '';
+    const container = document.getElementById('container');
+    container.innerHTML = '';
     const tradingViewChart = document.createElement('div');
     tradingViewChart.id = this.id + 'Chart';
     tradingViewChart.classList.add('tradingview-widget-container');
-    document.getElementById('container').appendChild(tradingViewChart);
+    container.appendChild(tradingViewChart);
     const coinId = this.id.toUpperCase() + 'USDT';
     await loadLightChart(coinId, tradingViewChart.id);
   } catch (error) {
