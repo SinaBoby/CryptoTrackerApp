@@ -3,8 +3,8 @@ export async function loadLightChart(coinId, id) {
     await new TradingView.MediumWidget({
       symbols: [[`BINANCE:${coinId}|1D`]],
       chartOnly: false,
-      width: '600px',
-      height: '400px',
+      width: '100%',
+      height: '500px',
       locale: 'en',
       colorTheme: 'dark',
       gridLineColor: 'rgba(42 ,46, 57, 0)',

@@ -22,6 +22,6 @@ export async function loadTechnicalChart(symbol) {
     });
     
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }

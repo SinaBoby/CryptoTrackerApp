@@ -1,13 +1,11 @@
 import { displayLoading, hideLoading } from './loading.js';
 export async function loadLivePrice  (symbol = 'btcusdt')  {
   try {
-    const priceElement = document.createElement('li');
-    priceElement.id = `${symbol}-p`;
+    const priceElement = createElement(symbol);
     displayLoading();
     const ws = await loadPriceTicker(symbol);
-    publishPrice(ws);
     hideLoading();
-    document.getElementById('top-five').appendChild(priceElement);
+    publishPrice(ws);
     return priceElement;
   } catch (error) {
     
@@ -35,8 +33,6 @@ function publishPrice(ws) {
     let stockObject = JSON.parse(event.data);
     const symbol = stockObject.data.s.toLowerCase();
     let priceElement = document.getElementById(`${symbol}-p`);
-
-    /* console.log(stockObject.data); */
     priceElement.textContent =
       `${symbol} :   ` + parseFloat(stockObject.data.c).toFixed(2) + ' $';
     priceElement.style.color =
@@ -47,4 +43,10 @@ function publishPrice(ws) {
         : 'red';
     lastPrice = stockObject.data.c;
   };
+}
+function createElement(symbol) {
+  const priceElement = document.createElement('li');
+  priceElement.id = `${symbol}-p`;
+  document.getElementById('top-five').appendChild(priceElement);
+  return priceElement
 }

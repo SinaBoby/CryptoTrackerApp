@@ -15,7 +15,7 @@ export async function categoriesDataPage() {
     userInterface.appendChild(categoriesElement);
     const topPairs = ['btcusdt', 'ethusdt', 'bnbusdt', 'xrpusdt', 'adausdt'];
     topPairs.forEach(async (pair) => {
-      const pairPrice = await loadLivePrice(pair);
+      await loadLivePrice(pair);
       
     });
     const catList = await loadCatList();

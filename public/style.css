@@ -1,14 +1,24 @@
 * {
   /* font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  color: #333333;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+ul {
+  list-style: none;
+}
+
+h2, h3, h4, th {
+  color: black;
+}
+
 #container {
   width: 90%;
   height: 600px;
+  margin: 1rem auto;
 }
 
 #btcChart {
@@ -20,12 +30,29 @@ body {
   background-color: #f9f9f9;
 }
 
+#user-interface {
+  margin: 0 auto;
+}
+
+#topCoins-container {
+  margin: 0 auto;
+}
+
 #top-coins-table {
   border: 1px solid black;
+  margin: 1rem auto;
+}
+
+#top-coins-table a {
+  text-decoration: none;
 }
 
 #user-interface {
   width: 95%;
+}
+
+.tradingview-widget-container {
+  height: 100%;
 }
 
 nav {

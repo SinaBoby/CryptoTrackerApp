@@ -11,7 +11,7 @@ export async function fetchTrends() {
       return response.json();
     }
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 export async function fetchExchanges() {
@@ -27,7 +27,7 @@ export async function fetchExchanges() {
       return response.json();
     }
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 export async function fetchGlobal() {
@@ -41,7 +41,7 @@ export async function fetchGlobal() {
       return response.json();
     }
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 function displayLoading(content) {
