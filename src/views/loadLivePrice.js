@@ -32,7 +32,7 @@ function publishPrice(ws) {
     let priceElement = document.getElementById(`${symbol}-p`);
     
     /* console.log(stockObject.data); */
-    priceElement.textContent =`${symbol} :   ` + parseFloat(stockObject.data.c).toFixed(2);
+    priceElement.textContent =`${symbol} :   ` + parseFloat(stockObject.data.c).toFixed(2) + ' $';
     priceElement.style.color =
       !lastPrice || lastPrice === stockObject.data.c
         ? 'black'

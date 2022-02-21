@@ -5,6 +5,7 @@ import { getTopCoinsData } from '../views/topCoinsData.js';
 import { loadLivePrice } from '../views/loadLivePrice.js';
 import { USER_INTERFACE_ID } from '../constants.js';
 import { router } from '../router.js';
+import { marketDataPage } from './marketDataPage.js';
 
 export async function homePage(userInterfaceElement) {
   try {
@@ -26,6 +27,7 @@ export async function homePage(userInterfaceElement) {
     document
       .getElementById('categories-info-page')
       .addEventListener('click', categoriesDataPage);
+      document.getElementById('market-page').addEventListener('click',marketDataPage)
   } catch (error) {
     console.log(error);
   }
