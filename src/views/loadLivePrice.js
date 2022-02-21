@@ -1,13 +1,18 @@
+import { displayLoading,hideLoading } from "./loading.js";
 export const loadLivePrice = async (symbol = 'btcusdt') => {
-  const priceElement = document.createElement('li');
+  try{
+    const priceElement = document.createElement('li');
   priceElement.id = `${symbol}-p`;
-  loadPriceTicker(symbol)
-    .then((ws) => {
-      console.log(ws);
-      publishPrice(ws);
-    })
-    .catch((error) => console.log(error));
-  return priceElement;
+  displayLoading()
+  const ws = await loadPriceTicker(symbol)
+  publishPrice(ws)
+  hideLoading()
+  return priceElement
+  }catch(error){
+    document.getElementById('top-five').appendChild(error);
+      console.log(error)
+  }
+ 
 };
 function loadPriceTicker(symbol = 'btcusdt') {
   return new Promise((resolve, reject) => {
@@ -18,8 +23,9 @@ function loadPriceTicker(symbol = 'btcusdt') {
     ws.onopen = function () {
       resolve(ws);
     };
-
+    
     ws.onerror = (err) => {
+      
       reject(err);
     };
   });

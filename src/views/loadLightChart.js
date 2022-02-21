@@ -1,6 +1,7 @@
-
+import { displayLoading,hideLoading } from "./loading.js"
 export async function loadLightChart(coinId,id) {
  try {
+   
   await new TradingView.MediumWidget(
     {
     "symbols": [
@@ -31,6 +32,7 @@ export async function loadLightChart(coinId,id) {
     "container_id": `${id}`
   }
     )
+    
  }catch(error) {
    console.log(error,'someThing went wrong')
  }

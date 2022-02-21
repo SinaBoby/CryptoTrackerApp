@@ -13,7 +13,7 @@ export async function homePage(userInterfaceElement) {
     const navBar = createNavBar();
     document.getElementById('header').appendChild(navBar);
     const topCoinsTable = await getTopCoinsData();
-    userInterfaceElement.appendChild(topCoinsTable);
+    /* userInterfaceElement.appendChild(topCoinsTable); */
 
     document
       .getElementById('logo')

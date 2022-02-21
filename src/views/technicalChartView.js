@@ -1,13 +1,11 @@
-
-
-export const createTechnicalElement =() =>{
+export const createTechnicalElement = () => {
   const technicalView = document.createElement('div');
- technicalView.innerHTML = String.raw`
- <h3>please select a coin from the lis</h3>
+  technicalView.innerHTML = String.raw`
+ <h3>please select a coin from the list</h3>
+ 
  <select name="coins-list" id="coins-list"></select>
  <div id="chart-container"></div>
- <p>hi</p>
- 
- `
- return technicalView
-}
+ `;
+  document.getElementById('user-interface').appendChild(technicalView);
+  return technicalView;
+};

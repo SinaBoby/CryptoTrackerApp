@@ -1,33 +1,13 @@
 import { loadLightChart } from './loadLightChart.js';
-/* import { displayLoading,hideLoading } from './loading.js'; */
+import { displayLoading,hideLoading } from './loading.js';
+import { topCoinsElementView } from './topCoinElementView.js';
 export const getTopCoinsData = async () => {
   
   return new Promise((resolve, reject) => {
-   async function topCoinsElementView(){
+   
+    const element= topCoinsElementView()
 
-      const element = document.createElement('div');
-      element.id = 'topCoins-container';
-      element.innerHTML = String.raw`
-        <h1>Top 10 of the Market</h1>
-        <div id="loading"></div>
-        <table id="top-coins-table">
-        <thead>
-        <tr>
-          <th>Rank</th>   
-          <th>Name</th>
-          <th>Last Price</th>
-          <th>24h change</th>
-          <th>24h volume</th>
-          <th>market Cap</th>
-        </tr>
-        </thead>
-        <tbody id="top-coins-body"></tbody>
-        `;
-        return element;
-    }
-    const element =  topCoinsElementView()
-
-     
+     displayLoading()
     fetch(
       'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C24%2C7d',
     )
@@ -35,7 +15,7 @@ export const getTopCoinsData = async () => {
         if (!response.ok) {
           throw 'HTTP ERROR';
         } else {
-          
+          hideLoading()
           return response.json();
         }
       })
@@ -71,6 +51,7 @@ export const getTopCoinsData = async () => {
 async function loadDetails(e) {
   try {
     e.preventDefault();
+    displayLoading()
     const container = document.getElementById('container');
     container.innerHTML = '';
     const tradingViewChart = document.createElement('div');
@@ -79,22 +60,10 @@ async function loadDetails(e) {
     container.appendChild(tradingViewChart);
     const coinId = this.id.toUpperCase() + 'USDT';
     await loadLightChart(coinId, tradingViewChart.id);
+    hideLoading()
   } catch (error) {
     console.log(error.message, 'unable to load the chart');
   }
 }
 
 
-export function displayLoading() {
-  const loader = document.getElementById('loading')
-  console.log(loader)
- /*  loader.classList.add('display')
-  setTimeout(() => {
-    loader.classList.remove('display');
-  }, 5000); */
-}
-
-export function hideLoading() {
-  const loader = document.getElementById('loading')
-  loader.classList.remove('display')
-}
