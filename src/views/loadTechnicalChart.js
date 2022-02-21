@@ -1,4 +1,4 @@
-import { displayLoading, hideLoading } from './loading.js';
+
 export async function loadTechnicalChart(symbol) {
   try {
     

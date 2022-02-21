@@ -10,7 +10,6 @@ export const loadCategoriesData = () => {
  <select id="categories-list" name="categories-list">
  </select>
  <div id="cat-info-container"></div>
-  
   `
   return element;
 }

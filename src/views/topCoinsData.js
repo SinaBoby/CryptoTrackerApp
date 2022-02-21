@@ -1,13 +1,11 @@
 import { loadLightChart } from './loadLightChart.js';
-import { displayLoading,hideLoading } from './loading.js';
+import { displayLoading, hideLoading } from './loading.js';
 import { topCoinsElementView } from './topCoinElementView.js';
 export const getTopCoinsData = async () => {
-  
   return new Promise((resolve, reject) => {
-   
-    const element= topCoinsElementView()
+    const element = topCoinsElementView();
 
-     displayLoading()
+    displayLoading();
     fetch(
       'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C24%2C7d',
     )
@@ -15,7 +13,7 @@ export const getTopCoinsData = async () => {
         if (!response.ok) {
           throw 'HTTP ERROR';
         } else {
-          hideLoading()
+          hideLoading();
           return response.json();
         }
       })
@@ -51,7 +49,7 @@ export const getTopCoinsData = async () => {
 async function loadDetails(e) {
   try {
     e.preventDefault();
-    displayLoading()
+    displayLoading();
     const container = document.getElementById('container');
     container.innerHTML = '';
     const tradingViewChart = document.createElement('div');
@@ -60,10 +58,8 @@ async function loadDetails(e) {
     container.appendChild(tradingViewChart);
     const coinId = this.id.toUpperCase() + 'USDT';
     await loadLightChart(coinId, tradingViewChart.id);
-    hideLoading()
+    hideLoading();
   } catch (error) {
     console.log(error.message, 'unable to load the chart');
   }
 }
-
-

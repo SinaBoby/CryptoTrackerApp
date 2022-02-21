@@ -5,7 +5,7 @@ import { displayLoading, hideLoading } from '../views/loading.js';
 export const technicalPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-  const technicalElement = createTechnicalElement();
+  createTechnicalElement();
   displayLoading();
   fetch('https://api.binance.com/api/v1/exchangeInfo')
     .then((response) => {
@@ -18,9 +18,7 @@ export const technicalPage = () => {
       return symbols;
     })
     .then((symbols) => {
-      console.log(symbols);
       symbols.forEach((arr) => {
-        console.log(arr.symbol);
         const symbol = arr.symbol;
         const option = document.createElement('option');
         option.value = symbol;
@@ -28,8 +26,7 @@ export const technicalPage = () => {
         const coinsList = document.getElementById('coins-list');
         coinsList.appendChild(option);
         coinsList.onchange = async function () {
-          try{
-
+          try {
             displayLoading();
             document.getElementById('chart-container').innerHTML = '';
             const symbol = coinsList.value;
@@ -41,8 +38,8 @@ export const technicalPage = () => {
               .appendChild(tradingViewChart);
             await loadTechnicalChart(symbol);
             hideLoading();
-          }catch(error){
-            console.log(error)
+          } catch (error) {
+            console.log(error);
           }
         };
       });

@@ -1,31 +1,39 @@
-export async function loadCatList(){
-  try{
-      const response = await fetch('https://api.coingecko.com/api/v3/coins/categories/list')
-      if(!response.ok){
-        throw "unable to load the list"
-      }else {
-        return response.json()
-      }
-  }catch(error){
-    console.log(error)
+import { displayLoading, hideLoading } from './loading.js';
+export async function loadCatList() {
+  try {
+    displayLoading();
+    const response = await fetch(
+      'https://api.coingecko.com/api/v3/coins/categories/list',
+    );
+    if (!response.ok) {
+      throw 'unable to load the list';
+    } else {
+      hideLoading();
+      return response.json();
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
-export async function fetchCategoryInfo(){
-  try{
-      const response = await fetch('https://api.coingecko.com/api/v3/coins/categories?order=name_asc')
-      if(!response.ok){
-        throw "unable to load the content";
-      }else {
-        console.log(response)
-        return response.json()
-      }
-  }catch(error){
-    console.log(error)
+export async function fetchCategoryInfo() {
+  try {
+    displayLoading();
+    const response = await fetch(
+      'https://api.coingecko.com/api/v3/coins/categories?order=name_asc',
+    );
+    if (!response.ok) {
+      throw 'unable to load the content';
+    } else {
+      hideLoading();
+      return response.json();
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 export function printCatInfo(cat) {
   const container = document.getElementById('cat-info-container');
-  
+
   container.innerHTML = `
   <h2>${cat.name}</h2>
   <h4>Content:</h4>
@@ -42,6 +50,5 @@ export function printCatInfo(cat) {
 <img id="second-asset" src="${cat.top_3_coins[1]}">
 <img id="third-asset" src="${cat.top_3_coins[2]}">
  </ul>
-  `
-  
+  `;
 }

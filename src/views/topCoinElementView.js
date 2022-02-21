@@ -1,10 +1,8 @@
-export async function topCoinsElementView(){
-
+export async function topCoinsElementView() {
   const element = document.createElement('div');
   element.id = 'topCoins-container';
   element.innerHTML = String.raw`
     <h1>Top 10 of the Market</h1>
-    
     <table id="top-coins-table">
     <thead>
     <tr>
@@ -18,6 +16,6 @@ export async function topCoinsElementView(){
     </thead>
     <tbody id="top-coins-body"></tbody>
     `;
-    document.getElementById('user-interface').appendChild(element)
-    return element
+  document.getElementById('user-interface').appendChild(element);
+  return element;
 }

@@ -1,6 +1,6 @@
-export function marketDataElement(){
-  const element = document.createElement('div')
-  element.id="marketData-element"
+export function marketDataElement() {
+  const element = document.createElement('div');
+  element.id = 'marketData-element';
   element.innerHTML = `
   <div id="top-five-list">
   <ul id="top-five">
@@ -15,8 +15,6 @@ export function marketDataElement(){
     <th>Symbol</th>
     <th>Name</th>
     <th>BTC Price</th>
-    
-   
   </tr>
   </thead>
   <tbody id="trends-body"></tbody>
@@ -33,7 +31,6 @@ export function marketDataElement(){
     <th>24H Trade Volume</th>
     <th>Country</th>
     <th>Url</th>
-   
   </tr>
   </thead>
   <tbody id="exchanges-body"></tbody>
@@ -45,9 +42,6 @@ export function marketDataElement(){
 
   </ul>
   </div>
-
-
-  
-  `
+  `;
   return element;
 }
