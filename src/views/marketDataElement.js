@@ -15,6 +15,7 @@ export function marketDataElement(){
     <th>Symbol</th>
     <th>Name</th>
     <th>BTC Price</th>
+    
    
   </tr>
   </thead>

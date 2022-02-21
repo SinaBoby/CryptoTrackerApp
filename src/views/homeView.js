@@ -3,6 +3,7 @@ export const createHomeElement = () => {
   element.id = 'home-element';
   element.innerHTML = String.raw`
   <h1>Top 10 of the Market</h1>
+  <div id="loading"><p>hi</p></div>
   <table id="top-coins-list">
   <thead>
   <tr>
@@ -15,6 +16,7 @@ export const createHomeElement = () => {
   </tr>
   </thead>
   <tbody id="top-coins-body"></tbody>
+  </table>
   `;
 
   return element;
