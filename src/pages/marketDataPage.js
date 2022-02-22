@@ -48,9 +48,9 @@ export async function marketDataPage() {
     function printGlobalInfo(data) {
       const globalList = document.getElementById('global');
       globalList.innerHTML = `
-       <li>Active CryptoCurrencies : ${data.active_cryptocurrencies} </li>
-       <li>Number Of Markets : ${data.markets} </li>
-       <li>Total Market Cap Change in 24h : ${data.market_cap_change_percentage_24h_usd} USD </li>
+       <li><span>Active CryptoCurrencies :</span> ${data.active_cryptocurrencies} </li>
+       <li><span>Number Of Markets :</span> ${data.markets} </li>
+       <li class="${data.market_cap_change_percentage_24h_usd > 0 ? 'bullish' : 'bearish'}"><span>Total Market Cap Change in 24h :</span> ${data.market_cap_change_percentage_24h_usd} % </li>
        `;
     }
   } catch (error) {

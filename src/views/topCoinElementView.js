@@ -7,6 +7,7 @@ export async function topCoinsElementView() {
     <thead>
     <tr>
       <th>Rank</th>   
+      <th>Logo</th>   
       <th>Name</th>
       <th>Last Price</th>
       <th>24h change</th>

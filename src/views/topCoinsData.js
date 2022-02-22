@@ -23,9 +23,10 @@ export const getTopCoinsData = async () => {
           const listItem = document.createElement('tr');
           listItem.innerHTML = `
         <td>${coin.market_cap_rank}</td>
-        <td><a href="#" id="${coin.symbol}"> <img src="${coin.image}" class="coin-logo">${coin.name}</a></td>  
+        <td><img src="${coin.image}" class="coin-logo"></td>
+        <td><a href="#" id="${coin.symbol}"> ${coin.name}</a></td>  
       <td>${coin.current_price}$</td>
-      <td >${coin.price_change_percentage_24h}%</td>
+      <td class="${coin.price_change_percentage_24h>0 ? 'bullish' : 'bearish'}">${coin.price_change_percentage_24h}%</td>
       <td>${coin.total_volume}$</td>
       <td>${coin.market_cap}$</td>
       `;
@@ -33,6 +34,7 @@ export const getTopCoinsData = async () => {
 
           const name = document.getElementById(`${coin.symbol}`);
           name.addEventListener('click', loadDetails);
+          
         });
         const container = document.createElement('div');
         container.id = 'container';

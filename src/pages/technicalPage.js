@@ -2,10 +2,16 @@ import { USER_INTERFACE_ID } from '../constants.js';
 import { createTechnicalElement } from '../views/technicalChartView.js';
 import { loadTechnicalChart } from '../views/loadTechnicalChart.js';
 import { displayLoading, hideLoading } from '../views/loading.js';
+import {loadLivePrice} from '../views/loadLivePrice.js'
 export const technicalPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
   createTechnicalElement();
+  const topPairs = ['btcusdt', 'ethusdt', 'bnbusdt', 'xrpusdt', 'adausdt'];
+    topPairs.forEach(async (pair) => {
+      const pairPrice = await loadLivePrice(pair);
+      
+    });
   displayLoading();
   fetch('https://api.binance.com/api/v1/exchangeInfo')
     .then((response) => {
