@@ -3,6 +3,7 @@ export async function topCoinsElementView() {
   element.id = 'topCoins-container';
   element.innerHTML = String.raw`
     <h1>Top 10 of the Market</h1>
+    <P>Click on each Coin Name to See the price Chart below the table</p>
     <table id="top-coins-table">
     <thead>
     <tr>

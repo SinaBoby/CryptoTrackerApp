@@ -101,6 +101,7 @@ th {
   -webkit-box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
           box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
   padding: 10px;
+  min-height: 90vh;
 }
 
 #topCoins-container {
@@ -108,12 +109,15 @@ th {
   margin-font-size: 2rem;
 }
 
+#topCoins-container p {
+  margin: 1rem 0;
+}
+
 #top-coins-table {
   margin: 1rem auto;
 }
 
 #top-coins-table a {
-  text-decoration: none;
   font-size: 1.1rem;
 }
 

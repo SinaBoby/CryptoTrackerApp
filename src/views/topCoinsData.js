@@ -25,10 +25,10 @@ export const getTopCoinsData = async () => {
         <td>${coin.market_cap_rank}</td>
         <td><img src="${coin.image}" class="coin-logo"></td>
         <td><a href="#" id="${coin.symbol}"> ${coin.name}</a></td>  
-      <td>${coin.current_price}$</td>
-      <td class="${coin.price_change_percentage_24h>0 ? 'bullish' : 'bearish'}">${coin.price_change_percentage_24h}%</td>
-      <td>${coin.total_volume}$</td>
-      <td>${coin.market_cap}$</td>
+      <td>${coin.current_price} $</td>
+      <td class="${coin.price_change_percentage_24h>0 ? 'bullish' : 'bearish'}">${coin.price_change_percentage_24h} %</td>
+      <td>${coin.total_volume} $</td>
+      <td>${coin.market_cap} $</td>
       `;
           topCoins.appendChild(listItem);
 
