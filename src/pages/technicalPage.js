@@ -9,7 +9,7 @@ export const technicalPage = () => {
   createTechnicalElement();
   const topPairs = ['btcusdt', 'ethusdt', 'bnbusdt', 'xrpusdt', 'adausdt'];
     topPairs.forEach(async (pair) => {
-      const pairPrice = await loadLivePrice(pair);
+       await loadLivePrice(pair);
       
     });
   displayLoading();
@@ -44,6 +44,11 @@ export const technicalPage = () => {
               .appendChild(tradingViewChart);
             await loadTechnicalChart(symbol);
             hideLoading();
+            window.scroll({
+              top: 440,
+              left: 0,
+              behavior: 'smooth'
+            });
           } catch (error) {
             console.log(error);
           }

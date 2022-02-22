@@ -41,7 +41,9 @@ export const getTopCoinsData = async () => {
         document.getElementById('user-interface').appendChild(container);
       })
       .catch((error) => {
-        console.log(error);
+        const err = document.createElement('h3')
+        err.innerHTML = error.message
+        document.getElementById('user-interface').appendChild(err)
         reject(error);
       });
 
@@ -62,7 +64,7 @@ async function loadDetails(e) {
     await loadLightChart(coinId, tradingViewChart.id);
     hideLoading();
     window.scroll({
-      top: 1050,
+      top: 1085,
       left: 0,
       behavior: 'smooth'
     });
