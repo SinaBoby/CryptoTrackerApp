@@ -17,6 +17,10 @@ body {
   margin: 5px;
 }
 
+#logo:hover {
+  cursor: pointer;
+}
+
 header {
   height: 80px;
   background-color: #9ca3af;
