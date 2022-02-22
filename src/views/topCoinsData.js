@@ -61,6 +61,11 @@ async function loadDetails(e) {
     const coinId = this.id.toUpperCase() + 'USDT';
     await loadLightChart(coinId, tradingViewChart.id);
     hideLoading();
+    window.scroll({
+      top: 1050,
+      left: 0,
+      behavior: 'smooth'
+    });
   } catch (error) {
     console.log(error.message, 'unable to load the chart');
   }

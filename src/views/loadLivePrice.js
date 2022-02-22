@@ -22,7 +22,9 @@ function loadPriceTicker(symbol = 'btcusdt') {
     };
 
     ws.onerror = (err) => {
+      console.log(err)
       reject(err);
+      
     };
   });
 }
