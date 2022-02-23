@@ -1,4 +1,4 @@
-
+import { errorHandler } from "./error.js";
 export async function loadTechnicalChart(symbol) {
   try {
     
@@ -22,6 +22,6 @@ export async function loadTechnicalChart(symbol) {
     });
     
   } catch (error) {
-    console.log(error.message);
+    errorHandler(error)
   }
 }

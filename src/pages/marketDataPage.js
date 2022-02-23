@@ -5,15 +5,18 @@ import {
   fetchExchanges,
   fetchGlobal,
 } from '../views/loadMarketData.js';
+import { topPairs } from '../data.js';
+import { USER_INTERFACE_ID } from '../constants.js';
+import { errorHandler } from '../views/error.js';
+
 export async function marketDataPage() {
   try {
-    const userInterface = document.getElementById('user-interface');
+    const userInterface = document.getElementById(USER_INTERFACE_ID);
     userInterface.innerHTML = '';
     const marketDataElem = marketDataElement();
     userInterface.appendChild(marketDataElem);
-    const topPairs = ['btcusdt', 'ethusdt', 'bnbusdt', 'xrpusdt', 'adausdt'];
     topPairs.forEach(async (pair) => {
-      const pairPrice = await loadLivePrice(pair);
+       await loadLivePrice(pair);
       
     });
     const trendsList = await fetchTrends();
@@ -54,6 +57,6 @@ export async function marketDataPage() {
        `;
     }
   } catch (error) {
-    console.log(error);
+    errorHandler(error);
   }
 }

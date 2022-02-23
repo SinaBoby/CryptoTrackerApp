@@ -1,3 +1,4 @@
+import { USER_INTERFACE_ID } from "../constants.js";
 export async function topCoinsElementView() {
   const element = document.createElement('div');
   element.id = 'topCoins-container';
@@ -18,6 +19,6 @@ export async function topCoinsElementView() {
     </thead>
     <tbody id="top-coins-body"></tbody>
     `;
-  document.getElementById('user-interface').appendChild(element);
+  document.getElementById(USER_INTERFACE_ID).appendChild(element);
   return element;
 }

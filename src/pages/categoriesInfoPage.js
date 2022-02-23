@@ -6,20 +6,18 @@ import {
   loadCatList,
   printCatInfo,
 } from '../views/loadCatList.js';
-
+import { topPairs } from '../data.js';
+import { errorHandler } from '../views/error.js';
 export async function categoriesDataPage() {
   try {
     const userInterface = document.getElementById(USER_INTERFACE_ID);
     userInterface.innerHTML = '';
     const categoriesElement = loadCategoriesData();
     userInterface.appendChild(categoriesElement);
-    const topPairs = ['btcusdt', 'ethusdt', 'bnbusdt', 'xrpusdt', 'adausdt'];
     topPairs.forEach(async (pair) => {
       await loadLivePrice(pair);
-      
     });
     const catList = await loadCatList();
-
     catList.forEach((category) => {
       const categoryName = document.createElement('option');
       categoryName.value = category.name;
@@ -31,11 +29,9 @@ export async function categoriesDataPage() {
       .addEventListener('change', showCatInfo);
     async function showCatInfo(e) {
       document.getElementById('cat-info-container').innerHTML = '';
-
       const category = e.target.value;
       const categoryInfo = await fetchCategoryInfo();
       const names = categoryInfo.map((cat) => cat.name);
-
       if (names.indexOf(category) > 0) {
         categoryInfo.forEach((cat) => {
           if (cat.name === category) {
@@ -52,6 +48,6 @@ export async function categoriesDataPage() {
       }
     }
   } catch (error) {
-    console.log(error);
+    errorHandler(error);
   }
 }

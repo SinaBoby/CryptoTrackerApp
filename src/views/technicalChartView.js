@@ -1,3 +1,4 @@
+import { USER_INTERFACE_ID } from "../constants.js";
 export const createTechnicalElement = () => {
   const technicalView = document.createElement('div');
   technicalView.innerHTML = String.raw`
@@ -9,6 +10,6 @@ export const createTechnicalElement = () => {
  <select name="coins-list" id="coins-list"></select>
  <div id="chart-container"></div>
  `;
-  document.getElementById('user-interface').appendChild(technicalView);
+  document.getElementById(USER_INTERFACE_ID).appendChild(technicalView);
   return technicalView;
 };

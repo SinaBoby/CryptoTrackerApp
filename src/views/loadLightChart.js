@@ -1,3 +1,5 @@
+import { errorHandler } from './error.js';
+
 export async function loadLightChart(coinId, id) {
   try {
     await new TradingView.MediumWidget({
@@ -24,6 +26,6 @@ export async function loadLightChart(coinId, id) {
       container_id: `${id}`,
     });
   } catch (error) {
-    console.log(error, 'someThing went wrong');
+    errorHandler(error);
   }
 }

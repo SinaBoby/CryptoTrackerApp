@@ -1,4 +1,5 @@
 import { displayLoading, hideLoading } from './loading.js';
+import { errorHandler } from './error.js';
 export async function loadLivePrice(symbol = 'btcusdt') {
   try {
     const priceElement = createElement(symbol);
@@ -8,7 +9,7 @@ export async function loadLivePrice(symbol = 'btcusdt') {
     publishPrice(ws);
     return priceElement;
   } catch (error) {
-    console.log(error.message);
+    errorHandler(error);
   }
 }
 function loadPriceTicker(symbol = 'btcusdt') {
@@ -22,9 +23,8 @@ function loadPriceTicker(symbol = 'btcusdt') {
     };
 
     ws.onerror = (err) => {
-      console.log(err)
+      errorHandler(err);
       reject(err);
-      
     };
   });
 }

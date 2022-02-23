@@ -2,21 +2,25 @@ import { USER_INTERFACE_ID } from '../constants.js';
 import { createTechnicalElement } from '../views/technicalChartView.js';
 import { loadTechnicalChart } from '../views/loadTechnicalChart.js';
 import { displayLoading, hideLoading } from '../views/loading.js';
-import {loadLivePrice} from '../views/loadLivePrice.js'
+import { loadLivePrice } from '../views/loadLivePrice.js';
+import { topPairs } from '../data.js';
+import { errorHandler } from '../views/error.js';
 export const technicalPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
   createTechnicalElement();
-  const topPairs = ['btcusdt', 'ethusdt', 'bnbusdt', 'xrpusdt', 'adausdt'];
-    topPairs.forEach(async (pair) => {
-       await loadLivePrice(pair);
-      
-    });
+  topPairs.forEach(async (pair) => {
+    await loadLivePrice(pair);
+  });
   displayLoading();
   fetch('https://api.binance.com/api/v1/exchangeInfo')
     .then((response) => {
-      hideLoading();
-      return response.json();
+      if (!response.ok) {
+        throw new Error('Unable to load Exchanges List : HTTP Error');
+      } else {
+        hideLoading();
+        return response.json();
+      }
     })
     .then((data) => {
       const symbols = data.symbols;
@@ -47,10 +51,10 @@ export const technicalPage = () => {
             window.scroll({
               top: 440,
               left: 0,
-              behavior: 'smooth'
+              behavior: 'smooth',
             });
           } catch (error) {
-            console.log(error);
+            errorHandler(error);
           }
         };
       });
