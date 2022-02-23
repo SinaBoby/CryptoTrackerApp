@@ -34,16 +34,19 @@ function publishPrice(ws) {
     let stockObject = JSON.parse(event.data);
     const symbol = stockObject.data.s.toLowerCase();
     let priceElement = document.getElementById(`${symbol}-p`);
-    priceElement.innerHTML =
-      `<span class="symbol">${symbol} :</span>   ` +
-      parseFloat(stockObject.data.c).toFixed(2) +
-      ' $';
-    priceElement.style.color =
-      !lastPrice || lastPrice === stockObject.data.c
-        ? 'black'
-        : lastPrice < stockObject.data.c
-        ? 'green'
-        : 'red';
+    if (priceElement){
+
+      priceElement.innerHTML =
+        `<span class="symbol">${symbol} :</span>   ` +
+        parseFloat(stockObject.data.c).toFixed(2) +
+        ' $';
+      priceElement.style.color =
+        !lastPrice || lastPrice === stockObject.data.c
+          ? 'black'
+          : lastPrice < stockObject.data.c
+          ? 'green'
+          : 'red';
+    }
     lastPrice = stockObject.data.c;
   };
 }
