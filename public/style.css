@@ -303,3 +303,72 @@ option {
             transform: rotate(360deg);
   }
 }
+
+@media (max-width: 766px) {
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 120px;
+  }
+  header nav {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  header nav ul {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 20px;
+  }
+  header .nav-item a {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 1rem;
+  }
+  table tbody tr td {
+    font-size: 12px;
+  }
+  table tbody tr td:nth-child(1) {
+    padding-left: 0;
+    font-size: 14px;
+  }
+  table thead tr th {
+    font-size: 14px;
+  }
+  table thead tr th:nth-child(1) {
+    padding-left: 0;
+  }
+  table thead tr th:nth-child(2) {
+    visibility: hidden;
+  }
+  td img {
+    width: 40px;
+  }
+  #top-coins-table a {
+    font-size: 14px;
+  }
+  #topCoins-container p {
+    font-size: 14px;
+  }
+  h1, h2, #marketData-element h4 {
+    font-size: 1.5rem;
+  }
+  #top-five-list {
+    font-size: 14px;
+  }
+  #global li {
+    font-size: 14px;
+  }
+}
