@@ -7,8 +7,5 @@ export const router = (page) => {
     case 'home':
       homePage(userInterfaceElement);
       break;
-    case 'charts':
-      technicalPage(userInterfaceElement);
-      break;
   }
 };
