@@ -3,7 +3,7 @@ import { displayLoading, hideLoading } from './loading.js';
 import { topCoinsElementView } from './topCoinElementView.js';
 import { USER_INTERFACE_ID } from '../constants.js';
 import { errorHandler } from '../views/error.js';
-export const getTopCoinsData = async () => {
+export const getTopCoinsData = () => {
   return new Promise((resolve, reject) => {
     const element = topCoinsElementView();
     displayLoading();
