@@ -1,6 +1,6 @@
 # Crypto Tracker App
 
-<img src="./public/Assets/Recording 2022-02-16 at 01.03.16.gif">
+<img src="./public/assets/demo.gif">
 
 ---
 
