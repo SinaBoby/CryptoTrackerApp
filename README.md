@@ -11,15 +11,15 @@ This project has created as the end project for  [Browsers module](https://githu
 
 ---
 
-## User Guide
+## Features
 
-    - You have 1 minute for each question.
+    - Show table of top 10 assets in Crypto market plus their info and price charts.
     
-    - Answer within 30 seconds and get extra 'time points'
+    - Show all pairs listed on Binance crypto exchange and their Technical charts with all useful options.
     
-    - Feel confused? Check out the references.
+    - Show other market meta data include most trusted exchanges, most trend assets and other global data. 
     
-    - You will find your final score at the result page.
+    - Show top5 assets live price using Websockets. 
 
 ---
 
@@ -53,17 +53,26 @@ Let's run through the folders:
 public
 src
 └── pages
-|    └── welcomePage.js
-|    └── questionPage.js
-|    └── resultPage.js
+|    └── HomePage.js
+|    └── marketDataPage.js
+|    └── technicalPage.js
+|     └── categoriesInfoPage.js
 └── views
-|    └── answerView.js
-|    └── clickErrorView.js
-|    └── questionView.js
-|    └── referenceView.js
-|    └── resultView.js
-|    └── timerView.js
-|    └── welcomeView.js
+|    └── error.js
+|    └── loadCategories.js
+|    └── loadCatList.js
+|    └── loadingSpin.js
+|    └── loadLightChart.js
+|    └── loadLivePrice.js
+|    └── loadTechnicalChart.js
+|    └── loadMarketData.js
+|    └── loadmarketDataElement.js
+|    └── navBarView.js
+|    └── loadTechnicalChart.js
+|    └── technicalChartView.js
+|    └── topCoinsElement.js
+|    └── topCoinsData.js
+|     
 └── app.js
 └── constants.js
 └── data.js
@@ -80,29 +89,3 @@ index.html
 - `data.js` this is our data model. Anything we need to store in the browser we place inside the data file
 - `router.js` this file will transition the app from one page to the other and clear the HTML.
 
-## Backlog
-
-So what should be built? Below is a collection of user stories you can choose from. Stories inside of each priority level are not necessarily in order, it's up to your group to decide how they fit into your strategy. These are also just suggestion, feel free to change them or create your own! Feel free to get creative.
-
-## Must-Haves
-
-> these are necessary for basic usability
-
-- [x] A user can see one question at a time, stepping through the quiz
-- [ ] A user can select an answer for each question
-- [ ] A user can know which questions they got correct and incorrect (either immediately or at the end of the quiz)
-- [ ] A user can see the correct answer for questions (either immediately or at the end of the quiz)
-- [ ] A user can see their score at the end of the quiz
-
-## Nice-to-Haves
-
-> if time, add more features!
-
-- [ ] A user can see their score update in real-time as they select answers
-- [ ] A user can refresh the page and still have his/her given answers available
-- [ ] A user has access to resources for further study on each question
-- [ ] A user can "cheat" to see the correct answer, this forfeits the question
-- [ ] A user can get more points for fast answers (if your quiz works like a test)
-- [ ] A user can learn the about the correct answer and look into resources (if your quiz is more educational)
-- [ ] Transition between pages or question look fancy like TypeForm for example
-- [ ] Anything else you can think of... go nuts!
