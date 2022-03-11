@@ -1,0 +1,28 @@
+{
+  "name": "cryptoapi",
+  "version": "1.0.0",
+  "description": "Crypto Market price tracker and technical charts",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SinaBoby/CryptoTrackerApp.git"
+  },
+  "author": "sinaboby@yahoo.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SinaBoby/CryptoTrackerApp/issues"
+  },
+  "homepage": "https://github.com/SinaBoby/CryptoTrackerApp#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "node-fetch": "^3.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
