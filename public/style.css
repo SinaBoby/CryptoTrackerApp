@@ -410,3 +410,9 @@ option {
     font-size: 12px;
   }
 }
+
+@media (max-width: 370px) {
+  table tbody tr td:last-child a {
+    font-size: 8px;
+  }
+}
