@@ -10,9 +10,7 @@ export async function homePage(userInterfaceElement) {
     const navBar = createNavBar();
     document.getElementById('header').appendChild(navBar);
     await getTopCoinsData();
-    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
-      console.log('🎉 Dark mode is supported');
-    }
+    
     document
       .getElementById('logo')
       .addEventListener('click', async function () {

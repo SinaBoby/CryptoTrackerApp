@@ -8,7 +8,7 @@ export const getTopCoinsData = () => {
     const element = topCoinsElementView();
     displayLoading();
     const url =
-      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C24%2C7d';
+      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=true&price_change_percentage=1h%2C24%2C7d';
     fetch(url)
       .then((response) => {
         if (!response.ok) {
@@ -27,6 +27,7 @@ export const getTopCoinsData = () => {
         const container = document.createElement('div');
         container.id = 'container';
         document.getElementById(USER_INTERFACE_ID).appendChild(container);
+    container.style.marginBottom = '20px'
       })
       .catch((error) => {
         errorHandler(error);
@@ -40,7 +41,8 @@ async function loadDetails(e) {
   try {
     e.preventDefault();
     displayLoading();
-    const container = document.getElementById('container');
+    
+    const container = document.getElementById('container')
     container.innerHTML = '';
     const tradingViewChart = document.createElement('div');
     tradingViewChart.id = this.id + 'Chart';
@@ -49,11 +51,7 @@ async function loadDetails(e) {
     const coinId = this.id.toUpperCase() + 'USDT';
     await loadLightChart(coinId, tradingViewChart.id);
     hideLoading();
-    window.scroll({
-      top: 1085,
-      left: 0,
-      behavior: 'smooth',
-    });
+    window.scroll(0,document.body.scrollHeight);
   } catch (error) {
     errorHandler(error);
   }
