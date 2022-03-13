@@ -87,7 +87,8 @@ th {
   color: black;
 }
 
-#container, #chart-container {
+#container,
+#chart-container {
   width: 100%;
   /* max-height: 600px; */
   height: -webkit-fit-content;
@@ -144,23 +145,26 @@ table {
 }
 
 table thead tr th {
-  padding: 10px 0;
-  text-align: left;
+  padding: 10px 5px;
+  text-align: center;
   font-size: 1.3rem;
-}
-
-table thead tr th:nth-child(1) {
-  padding-left: 10px;
 }
 
 table tbody tr td {
-  font-size: 1.1rem;
-  padding: 1rem 0;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem 5px;
+  max-width: 150px;
 }
 
 table tbody tr td:nth-child(1) {
-  padding-left: 30px;
+  /* padding-left: 30px; */
   font-size: 1.3rem;
+  /*  width: 70px; */
+}
+
+table#trends tbody tr td {
+  width: 150px;
 }
 
 .bullish {
@@ -361,7 +365,9 @@ option {
   #topCoins-container p {
     font-size: 14px;
   }
-  h1, h2, #marketData-element h4 {
+  h1,
+  h2,
+  #marketData-element h4 {
     font-size: 1.5rem;
   }
   #top-five-list {
@@ -405,7 +411,8 @@ option {
   #top-five-list {
     font-size: 12px;
   }
-  #coins-list, #categories-list {
+  #coins-list,
+  #categories-list {
     width: 150px;
     font-size: 12px;
   }
@@ -478,7 +485,8 @@ option {
   #top-five-list {
     font-size: 10px;
   }
-  #coins-list, #categories-list {
+  #coins-list,
+  #categories-list {
     width: 150px;
     font-size: 1px;
   }
