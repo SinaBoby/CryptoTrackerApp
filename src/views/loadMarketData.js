@@ -9,6 +9,7 @@ export async function fetchTrends() {
     } else {
       hideLoading('trends');
       return response.json();
+      
     }
   } catch (error) {
     errorHandler(error);

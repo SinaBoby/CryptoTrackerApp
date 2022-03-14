@@ -11,7 +11,7 @@ export function marketDataElement() {
   <table id="trends">
   <thead>
   <tr>
-    <th>Rank</th>   
+    <th>#</th>   
     <th>Symbol</th>
     <th>Name</th>
     <th>BTC Price</th>

@@ -125,7 +125,7 @@ th {
 }
 
 #top-coins-table a {
-  font-size: 1.1rem;
+  font-size: .95rem;
 }
 
 #user-interface {
@@ -133,7 +133,8 @@ th {
 }
 
 .coin-logo {
-  width: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 table {
@@ -146,25 +147,62 @@ table {
 
 table thead tr th {
   padding: 10px 5px;
-  text-align: center;
-  font-size: 1.3rem;
+  text-align: left;
+  font-size: 1rem;
 }
 
 table tbody tr td {
-  text-align: center;
-  font-size: 1rem;
+  border-top: 1px solid #9ca3af;
+  font-size: .875rem;
   padding: 1rem 5px;
-  max-width: 150px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
-table tbody tr td:nth-child(1) {
-  /* padding-left: 30px; */
-  font-size: 1.3rem;
-  /*  width: 70px; */
+table tbody tr td td:nth-child(1) {
+  font-size: 1.1rem;
+  width: 70px;
+}
+
+table#trends {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 table#trends tbody tr td {
-  width: 150px;
+  width: 200px;
+}
+
+table#trends tbody tr td:first-child {
+  width: 75px;
+}
+
+table#trends tbody tr td:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+table#exchanges tbody tr td {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+#top-coins-table td:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  gap: 10px;
 }
 
 .bullish {
@@ -308,7 +346,7 @@ option {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 785px) {
   body {
     overflow-x: hidden;
   }
@@ -352,9 +390,6 @@ option {
   }
   table thead tr th:nth-child(1) {
     padding-left: 0;
-  }
-  table thead tr th:nth-child(2) {
-    visibility: hidden;
   }
   td img {
     width: 40px;
