@@ -15,6 +15,14 @@ export async function marketDataPage() {
     userInterface.innerHTML = '';
     const marketDataElem = marketDataElement();
     userInterface.appendChild(marketDataElem);
+   /*  const ws = new WebSocket("ws://localhost:3000/live?symbol=btcusdt")
+    ws.onopen = () => {
+      console.log("new Connection")
+      ws.send("how is it going?")
+    }
+    ws.onmessage =( event )=> {
+      console.log(event.data)
+    } */
     topPairs.forEach(async (pair) => {
        await loadLivePrice(pair);
       
@@ -22,7 +30,7 @@ export async function marketDataPage() {
     const trendsList = await fetchTrends();
     const coins = trendsList.coins;
     coins.forEach((coin) => {
-      console.log(coin)
+      
       const coinRow = document.createElement('tr');
       coinRow.innerHTML = `
        <td>${coin.item.market_cap_rank}</td>

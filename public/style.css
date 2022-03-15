@@ -169,10 +169,15 @@ table#trends {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  border: 2px solid #9ca3af;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
 }
 
 table#trends tbody tr td {
-  width: 200px;
+  width: 150px;
 }
 
 table#trends tbody tr td:first-child {
@@ -186,6 +191,14 @@ table#trends tbody tr td:nth-child(3) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+table#exchanges {
+  border: 2px solid #9ca3af;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
 }
 
 table#exchanges tbody tr td {
@@ -306,22 +319,46 @@ option {
 
 #marketData-element h4 {
   margin: 2rem 0 1rem 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 #global {
+  border: 2px solid #9ca3af;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px -10px 7px 5px rgba(0, 0, 0, 0.2);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   margin-bottom: 3rem;
 }
 
 #global li {
   padding: 20px 0;
   border-bottom: 1px solid #333333;
-  width: 600px;
-  font-size: 1.2rem;
+  width: 450px;
+  font-size: 1rem;
+}
+
+#global li:last-child {
+  border: none;
 }
 
 #global li span {
   font-weight: bold;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 50px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 @-webkit-keyframes spin {
