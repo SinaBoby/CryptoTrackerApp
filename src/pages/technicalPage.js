@@ -13,7 +13,7 @@ export const technicalPage = () => {
     await loadLivePrice(pair);
   });
   displayLoading();
-  fetch('https://api.binance.com/api/v1/exchangeInfo')
+  fetch('/api/binanceInfo')
     .then((response) => {
       if (!response.ok) {
         throw new Error('Unable to load Exchanges List : HTTP Error');

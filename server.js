@@ -8,10 +8,10 @@ const server = app.listen(PORT, () => {
 
 const wss = new WebSocketServer({ server, path: '/live' });
 wss.on('connection', (ws, req) => {
-  console.log(req.url.split('?'));
+  
   const [_path, params] = req.url.split('?');
   const searchParams = queryString.parse(params);
-  console.log(searchParams.symbol);
+  
 
   let wss = new WebSocket(
     `wss://stream.binance.com:9443/stream?streams=${searchParams.symbol}@miniTicker`,

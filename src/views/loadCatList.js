@@ -4,7 +4,7 @@ export async function loadCatList() {
   try {
     const url = 'https://api.coingecko.com/api/v3/coins/categories/list';
     displayLoading();
-    const response = await fetch(url);
+    const response = await fetch('/api/catList');
     if (!response.ok) {
       throw new Error('Unable to load the categories list : HTTP Error');
     } else {
@@ -20,7 +20,7 @@ export async function fetchCategoryInfo() {
     const url =
       'https://api.coingecko.com/api/v3/coins/categories?order=name_asc';
     displayLoading();
-    const response = await fetch(url);
+    const response = await fetch('/api/catInfo');
     if (!response.ok) {
       throw new Error('Unable to load the Data : HTTP Error');
     } else {

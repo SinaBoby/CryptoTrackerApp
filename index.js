@@ -12,11 +12,13 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
-  console.log(req.url)
+  
   res.render('index');
 });
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/src', express.static(path.join(__dirname, 'src')));
+import router from './Routes/api/apiRouter.js';
+app.use('/api', router);
 /* app.get('/technical', (req, res) => {
   res.render('index');
 }); */

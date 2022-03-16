@@ -65,5 +65,4 @@ function createElement(symbol) {
     topFive.appendChild(priceElement);
   }
   /* document.getElementById('top-five').appendChild(priceElement); */
-  return priceElement;
 }

@@ -19,5 +19,5 @@ export async function topCoinsElementView() {
     <tbody id="top-coins-body"></tbody>
     `;
   document.getElementById(USER_INTERFACE_ID).appendChild(element);
-  return element;
+  
 }
