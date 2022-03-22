@@ -5,11 +5,21 @@ import { USER_INTERFACE_ID } from '../constants.js';
 import { errorHandler } from '../views/error.js';
 export const getTopCoinsData = () => {
   return new Promise((resolve, reject) => {
-    const element = topCoinsElementView();
+   /*  fetch('/')
+    .then(response => {
+      return response.text()
+    })
+    .then(html => {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, 'text/html');
+      window.innerHTML = doc
+      console.log(doc)
+    }) */
+    topCoinsElementView();
     displayLoading();
     const url =
       'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=true&price_change_percentage=1h%2C24%2C7d';
-    fetch(url)
+    fetch('/api/topCoins')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Unable to load the table : HTTP Error');
@@ -34,7 +44,7 @@ export const getTopCoinsData = () => {
         reject(error);
       });
 
-    resolve(element);
+    resolve();
   });
 };
 async function loadDetails(e) {
@@ -61,8 +71,7 @@ function loadCoinData(coin) {
   const listItem = document.createElement('tr');
   listItem.innerHTML = `
 <td>${coin.market_cap_rank}</td>
-<td><img src="${coin.image}" class="coin-logo"></td>
-<td><a href="#" id="${coin.symbol}"> ${coin.name}</a></td>  
+<td><img src="${coin.image}" class="coin-logo" ><a href="#" id="${coin.symbol}"> ${coin.name}</a></td>  
 <td>${coin.current_price} $</td>
 <td class="${coin.price_change_percentage_24h > 0 ? 'bullish' : 'bearish'}">${
     coin.price_change_percentage_24h

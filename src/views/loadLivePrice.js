@@ -5,6 +5,7 @@ export async function loadLivePrice(symbol = 'btcusdt') {
     const priceElement = createElement(symbol);
     displayLoading();
     const ws = await loadPriceTicker(symbol);
+
     hideLoading();
     publishPrice(ws);
     return priceElement;
@@ -15,16 +16,21 @@ export async function loadLivePrice(symbol = 'btcusdt') {
 function loadPriceTicker(symbol = 'btcusdt') {
   return new Promise((resolve, reject) => {
     let ws = new WebSocket(
-      `wss://stream.binance.com:9443/stream?streams=${symbol}@miniTicker`
+      /* `wss://stream.binance.com:9443/stream?streams=${symbol}@miniTicker` */
+      `ws://localhost:3000/live?symbol=${symbol}`,
     );
 
     ws.onopen = function () {
+      console.log('connected');
       resolve(ws);
     };
 
     ws.onerror = (err) => {
       errorHandler(err);
       reject(err);
+    };
+    ws.onclose = () => {
+      console.log('disconnected');
     };
   });
 }
@@ -34,8 +40,7 @@ function publishPrice(ws) {
     let stockObject = JSON.parse(event.data);
     const symbol = stockObject.data.s.toLowerCase();
     let priceElement = document.getElementById(`${symbol}-p`);
-    if (priceElement){
-
+    if (priceElement) {
       priceElement.innerHTML =
         `<span class="symbol">${symbol} :</span>   ` +
         parseFloat(stockObject.data.c).toFixed(2) +
@@ -46,6 +51,8 @@ function publishPrice(ws) {
           : lastPrice < stockObject.data.c
           ? 'green'
           : 'red';
+    } else {
+      ws.close();
     }
     lastPrice = stockObject.data.c;
   };
@@ -53,6 +60,9 @@ function publishPrice(ws) {
 function createElement(symbol) {
   const priceElement = document.createElement('li');
   priceElement.id = `${symbol}-p`;
-  document.getElementById('top-five').appendChild(priceElement);
-  return priceElement;
+  const topFive = document.getElementById('top-five');
+  if (topFive) {
+    topFive.appendChild(priceElement);
+  }
+  /* document.getElementById('top-five').appendChild(priceElement); */
 }

@@ -7,9 +7,9 @@ export function displayLoading() {
     .getElementById('user-interface')
     .insertAdjacentElement('afterbegin', loader);
   loader.classList.add('display');
-  setTimeout(() => {
+  /* setTimeout(() => {
     loader.classList.remove('display');
-  }, 5000);
+  }, 5000); */
 }
 
 export function hideLoading() {

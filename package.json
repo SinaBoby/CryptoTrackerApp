@@ -20,7 +20,10 @@
   "homepage": "https://github.com/SinaBoby/CryptoTrackerApp#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "node-fetch": "^3.2.2"
+    "express-handlebars": "^6.0.3",
+    "node-fetch": "^3.2.3",
+    "query-string": "^7.1.1",
+    "ws": "^8.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
