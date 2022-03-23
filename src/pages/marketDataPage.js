@@ -56,7 +56,6 @@ export async function marketDataPage() {
       document.getElementById('exchanges-body').appendChild(exchangeRow);
     });
     const global = await fetchGlobal();
-    console.log(global)
     printGlobalInfo(global.data);
     function printGlobalInfo(data) {
       const globalList = document.getElementById('global');

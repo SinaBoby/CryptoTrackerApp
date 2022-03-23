@@ -15,11 +15,7 @@ export async function loadLivePrice(symbol = 'btcusdt') {
 }
 function loadPriceTicker(symbol = 'btcusdt') {
   return new Promise((resolve, reject) => {
-    console.log(location.host)
-    let ws = new WebSocket(
-      /* `wss://stream.binance.com:9443/stream?streams=${symbol}@miniTicker` */
-      `wss://${location.host}/live?symbol=${symbol}`,
-    );
+    let ws = new WebSocket(`wss://${location.host}/live?symbol=${symbol}`);
 
     ws.onopen = function () {
       console.log('connected');
@@ -65,5 +61,4 @@ function createElement(symbol) {
   if (topFive) {
     topFive.appendChild(priceElement);
   }
-  /* document.getElementById('top-five').appendChild(priceElement); */
 }
