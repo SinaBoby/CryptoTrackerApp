@@ -1,9 +1,14 @@
 import app from './index.js';
 import queryString from 'query-string';
 import WebSocket, { WebSocketServer } from 'ws';
+import url from 'url';
+
 const PORT = process.env.PORT || 3000;
+process.env.HOST = 'sinacryptotracker.herokuapp.com'
+
 const server = app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
+  
 });
 
 const wss = new WebSocketServer({ server, path: '/live' });
