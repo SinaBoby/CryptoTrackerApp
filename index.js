@@ -19,7 +19,4 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/src', express.static(path.join(__dirname, 'src')));
 import router from './Routes/api/apiRouter.js';
 app.use('/api', router);
-/* app.get('/technical', (req, res) => {
-  res.render('index');
-}); */
 export { app as default };
