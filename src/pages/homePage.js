@@ -6,18 +6,15 @@ import { marketDataPage } from './marketDataPage.js';
 
 export async function homePage(userInterfaceElement) {
   try {
-   
     userInterfaceElement.innerHTML = '';
     document.getElementById('header').innerHTML = '';
     const navBar = createNavBar();
     document.getElementById('header').appendChild(navBar);
     await getTopCoinsData();
-    
+
     document
       .getElementById('logo')
       .addEventListener('click', async function () {
-        /* document.getElementById('header').innerHTML = ''; */
-        
         await homePage(userInterfaceElement);
       });
     document

@@ -2,7 +2,6 @@ import { displayLoading, hideLoading } from './loading.js';
 import { errorHandler } from './error.js';
 export async function loadCatList() {
   try {
-    const url = 'https://api.coingecko.com/api/v3/coins/categories/list';
     displayLoading();
     const response = await fetch('/api/catList');
     if (!response.ok) {
@@ -17,8 +16,6 @@ export async function loadCatList() {
 }
 export async function fetchCategoryInfo() {
   try {
-    const url =
-      'https://api.coingecko.com/api/v3/coins/categories?order=name_asc';
     displayLoading();
     const response = await fetch('/api/catInfo');
     if (!response.ok) {

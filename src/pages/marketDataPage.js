@@ -15,14 +15,6 @@ export async function marketDataPage() {
     userInterface.innerHTML = '';
     const marketDataElem = marketDataElement();
     userInterface.appendChild(marketDataElem);
-   /*  const ws = new WebSocket("ws://localhost:3000/live?symbol=btcusdt")
-    ws.onopen = () => {
-      console.log("new Connection")
-      ws.send("how is it going?")
-    }
-    ws.onmessage =( event )=> {
-      console.log(event.data)
-    } */
     topPairs.forEach(async (pair) => {
        await loadLivePrice(pair);
       
@@ -56,7 +48,6 @@ export async function marketDataPage() {
       document.getElementById('exchanges-body').appendChild(exchangeRow);
     });
     const global = await fetchGlobal();
-    console.log(global)
     printGlobalInfo(global.data);
     function printGlobalInfo(data) {
       const globalList = document.getElementById('global');

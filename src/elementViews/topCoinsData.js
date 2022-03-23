@@ -5,20 +5,8 @@ import { USER_INTERFACE_ID } from '../constants.js';
 import { errorHandler } from './error.js';
 export const getTopCoinsData = () => {
   return new Promise((resolve, reject) => {
-   /*  fetch('/')
-    .then(response => {
-      return response.text()
-    })
-    .then(html => {
-      var parser = new DOMParser();
-      var doc = parser.parseFromString(html, 'text/html');
-      window.innerHTML = doc
-      console.log(doc)
-    }) */
     topCoinsElementView();
     displayLoading();
-    const url =
-      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=true&price_change_percentage=1h%2C24%2C7d';
     fetch('/api/topCoins')
       .then((response) => {
         if (!response.ok) {
