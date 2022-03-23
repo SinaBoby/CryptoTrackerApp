@@ -18,7 +18,7 @@ function loadPriceTicker(symbol = 'btcusdt') {
     console.log(location.host)
     let ws = new WebSocket(
       /* `wss://stream.binance.com:9443/stream?streams=${symbol}@miniTicker` */
-      `ws://${location.hostname}/live?symbol=${symbol}`,
+      `ws://${location.host}/live?symbol=${symbol}`,
     );
 
     ws.onopen = function () {
