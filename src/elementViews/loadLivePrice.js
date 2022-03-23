@@ -15,9 +15,10 @@ export async function loadLivePrice(symbol = 'btcusdt') {
 }
 function loadPriceTicker(symbol = 'btcusdt') {
   return new Promise((resolve, reject) => {
+    console.log(location)
     let ws = new WebSocket(
       /* `wss://stream.binance.com:9443/stream?streams=${symbol}@miniTicker` */
-      `ws://${location.hostname}/live?symbol=${symbol}`,
+      `ws://${location.host}/live?symbol=${symbol}`,
     );
 
     ws.onopen = function () {
