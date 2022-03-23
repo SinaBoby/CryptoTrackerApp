@@ -2,6 +2,7 @@ import app from './index.js';
 import queryString from 'query-string';
 import WebSocket, { WebSocketServer } from 'ws';
 const PORT = process.env.PORT || 3000;
+console.log(process.env)
 const server = app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
 });
