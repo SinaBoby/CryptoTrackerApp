@@ -145,8 +145,8 @@ export default class Body {
 	 * @return  Promise
 	 */
 	async json() {
-		const text = await this.text();
-		return JSON.parse(text);
+		const buffer = await consumeBody(this);
+		return JSON.parse(buffer.toString());
 	}
 
 	/**
@@ -156,7 +156,7 @@ export default class Body {
 	 */
 	async text() {
 		const buffer = await consumeBody(this);
-		return new TextDecoder().decode(buffer);
+		return buffer.toString();
 	}
 
 	/**

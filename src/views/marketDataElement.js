@@ -6,13 +6,12 @@ export function marketDataElement() {
   <ul id="top-five">
   </ul>
   </div>
-  <div class="flex-container">
   <div id="trends-container">
   <h4>7 most trend Assets</h4>
   <table id="trends">
   <thead>
   <tr>
-    <th>#</th>   
+    <th>Rank</th>   
     <th>Symbol</th>
     <th>Name</th>
     <th>BTC Price</th>
@@ -20,13 +19,6 @@ export function marketDataElement() {
   </thead>
   <tbody id="trends-body"></tbody>
   </table>
-  </div>
-  <div id="global-container">
-  <h4>Global market data</h4>
-  <ul id="global">
-
-  </ul>
-  </div>
   </div>
   <div id="exchanges-container">
   <h4>Top 10 trusted Exchanges</h4>
@@ -44,7 +36,12 @@ export function marketDataElement() {
   <tbody id="exchanges-body"></tbody>
   </table>
   </div>
-  
+  <div id="global-container">
+  <h4>Global market data</h4>
+  <ul id="global">
+
+  </ul>
+  </div>
   `;
   return element;
 }

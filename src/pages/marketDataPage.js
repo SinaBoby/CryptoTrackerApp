@@ -15,14 +15,6 @@ export async function marketDataPage() {
     userInterface.innerHTML = '';
     const marketDataElem = marketDataElement();
     userInterface.appendChild(marketDataElem);
-   /*  const ws = new WebSocket("ws://localhost:3000/live?symbol=btcusdt")
-    ws.onopen = () => {
-      console.log("new Connection")
-      ws.send("how is it going?")
-    }
-    ws.onmessage =( event )=> {
-      console.log(event.data)
-    } */
     topPairs.forEach(async (pair) => {
        await loadLivePrice(pair);
       
@@ -30,12 +22,11 @@ export async function marketDataPage() {
     const trendsList = await fetchTrends();
     const coins = trendsList.coins;
     coins.forEach((coin) => {
-      
       const coinRow = document.createElement('tr');
       coinRow.innerHTML = `
        <td>${coin.item.market_cap_rank}</td>
-       <td>${coin.item.symbol}</td>
-       <td><img src="${coin.item.small}" style="margin-right:10px;width:20px">${coin.item.name}</td>
+       <td><img src="${coin.item.small}"></td>
+       <td>${coin.item.name}</td>
        <td>${parseFloat(coin.item.price_btc).toFixed(6)} BTC</td>
        `;
       document.getElementById('trends-body').appendChild(coinRow);
@@ -56,7 +47,6 @@ export async function marketDataPage() {
       document.getElementById('exchanges-body').appendChild(exchangeRow);
     });
     const global = await fetchGlobal();
-    console.log(global)
     printGlobalInfo(global.data);
     function printGlobalInfo(data) {
       const globalList = document.getElementById('global');

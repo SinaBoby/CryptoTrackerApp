@@ -11,5 +11,5 @@ export const createTechnicalElement = () => {
  <div id="chart-container"></div>
  `;
   document.getElementById(USER_INTERFACE_ID).appendChild(technicalView);
-  
+  return technicalView;
 };
