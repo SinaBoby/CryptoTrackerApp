@@ -1,11 +1,11 @@
-import { loadCategoriesData } from '../elementViews/loadCategoriesData.js.js';
+import { loadCategoriesData } from '../elementViews/loadCategoriesData.js';
 import { USER_INTERFACE_ID } from '../constants.js';
-import { loadLivePrice } from '../elementViews/loadLivePrice.js.js';
+import { loadLivePrice } from '../elementViews/loadLivePrice.js';
 import {
   fetchCategoryInfo,
   loadCatList,
   printCatInfo,
-} from '../elementViews/loadCatList.js.js';
+} from '../elementViews/loadCatList.js';
 import { topPairs } from '../data.js';
 import { errorHandler } from '../elementViews/error.js';
 export async function categoriesDataPage() {
