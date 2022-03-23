@@ -1,13 +1,13 @@
-import { loadCategoriesData } from '../views/loadCategoriesData.js';
+import { loadCategoriesData } from '../elementViews/loadCategoriesData.js.js';
 import { USER_INTERFACE_ID } from '../constants.js';
-import { loadLivePrice } from '../views/loadLivePrice.js';
+import { loadLivePrice } from '../elementViews/loadLivePrice.js.js';
 import {
   fetchCategoryInfo,
   loadCatList,
   printCatInfo,
-} from '../views/loadCatList.js';
+} from '../elementViews/loadCatList.js.js';
 import { topPairs } from '../data.js';
-import { errorHandler } from '../views/error.js';
+import { errorHandler } from '../elementViews/error.js';
 export async function categoriesDataPage() {
   try {
     const userInterface = document.getElementById(USER_INTERFACE_ID);

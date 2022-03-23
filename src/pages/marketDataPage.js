@@ -1,13 +1,13 @@
-import { marketDataElement } from '../views/marketDataElement.js';
-import { loadLivePrice } from '../views/loadLivePrice.js';
+import { marketDataElement } from '../elementViews/marketDataElement.js';
+import { loadLivePrice } from '../elementViews/loadLivePrice.js';
 import {
   fetchTrends,
   fetchExchanges,
   fetchGlobal,
-} from '../views/loadMarketData.js';
+} from '../elementViews/loadMarketData.js';
 import { topPairs } from '../data.js';
 import { USER_INTERFACE_ID } from '../constants.js';
-import { errorHandler } from '../views/error.js';
+import { errorHandler } from '../elementViews/error.js';
 
 export async function marketDataPage() {
   try {

@@ -2,7 +2,7 @@ import { loadLightChart } from './loadLightChart.js';
 import { displayLoading, hideLoading } from './loading.js';
 import { topCoinsElementView } from './topCoinElementView.js';
 import { USER_INTERFACE_ID } from '../constants.js';
-import { errorHandler } from '../views/error.js';
+import { errorHandler } from './error.js';
 export const getTopCoinsData = () => {
   return new Promise((resolve, reject) => {
    /*  fetch('/')

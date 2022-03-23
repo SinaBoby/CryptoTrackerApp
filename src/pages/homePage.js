@@ -1,7 +1,7 @@
 import { technicalPage } from './technicalPage.js';
 import { categoriesDataPage } from './categoriesInfoPage.js';
-import { createNavBar } from '../views/navBarView.js';
-import { getTopCoinsData } from '../views/topCoinsData.js';
+import { createNavBar } from '../elementViews/navBarView.js';
+import { getTopCoinsData } from '../elementViews/topCoinsData.js';
 import { marketDataPage } from './marketDataPage.js';
 
 export async function homePage(userInterfaceElement) {

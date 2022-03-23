@@ -1,10 +1,10 @@
 import { USER_INTERFACE_ID } from '../constants.js';
-import { createTechnicalElement } from '../views/technicalChartView.js';
-import { loadTechnicalChart } from '../views/loadTechnicalChart.js';
-import { displayLoading, hideLoading } from '../views/loading.js';
-import { loadLivePrice } from '../views/loadLivePrice.js';
+import { createTechnicalElement } from '../elementViews/technicalChartView.js';
+import { loadTechnicalChart } from '../elementViews/loadTechnicalChart.js';
+import { displayLoading, hideLoading } from '../elementViews/loading.js';
+import { loadLivePrice } from '../elementViews/loadLivePrice.js';
 import { topPairs } from '../data.js';
-import { errorHandler } from '../views/error.js';
+import { errorHandler } from '../elementViews/error.js';
 export const technicalPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
