@@ -1,16 +1,13 @@
 import app from './index.js';
 import queryString from 'query-string';
 import WebSocket, { WebSocketServer } from 'ws';
-import https from "https";
+import http from "http";
 import fs from "fs"
 
 const PORT = process.env.PORT || 3000;
 //var app = function (req, res) { res.end('hello!') };
 
-const server = https.createServer({
-  key: fs.readFileSync("key.pem"),
-  cert: fs.readFileSync("cert.pem"),
-},app).listen(PORT, () => {
+const server = http.createServer(app).listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
   
 });
