@@ -6,7 +6,7 @@ import fs from "fs"
 
 const PORT = process.env.PORT || 3000;
 //var app = function (req, res) { res.end('hello!') };
-
+process.env.HOST = 'sinacryptotracker.herokuapp.com'
 const server = http.createServer(app).listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
   
