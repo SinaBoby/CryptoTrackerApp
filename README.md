@@ -7,7 +7,7 @@
 This project has created as the end project for  [Browsers module](https://github.com/HackYourFuture/UsingAPIs) of [Hack Your Future](https://www.hackyourfuture.net/) program.
 
 ### link to the Demo:
-[Demo](https://sinacryptoland.netlify.app/)
+[Demo](https://sinacryptotracker.herokuapp.com/)
 
 ---
 
